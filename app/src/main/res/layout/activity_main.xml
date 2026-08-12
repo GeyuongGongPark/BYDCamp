@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:padding="24dp">
+
+    <!-- 배터리 % 대형 표시 -->
+    <TextView
+        android:id="@+id/tvBatteryPct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="---%"
+        android:textSize="72sp"
+        android:textColor="@color/text_primary"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp"/>
+
+    <!-- 경과 시간 -->
+    <TextView
+        android:id="@+id/tvElapsedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0m"
+        android:textSize="32sp"
+        android:textColor="@color/text_secondary"
+        app:layout_constraintTop_toBottomOf="@id/tvBatteryPct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- 목표 온도 -->
+    <TextView
+        android:id="@+id/tvTargetTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="24.0°C"
+        android:textSize="28sp"
+        android:textColor="@color/accent_blue"
+        app:layout_constraintTop_toBottomOf="@id/tvElapsedTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- 상태 메시지 -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="대기 중"
+        android:textSize="18sp"
+        android:textColor="@color/text_secondary"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvTargetTemp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <!-- VIN 표시 -->
+    <TextView
+        android:id="@+id/tvVin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIN 미설정"
+        android:textSize="14sp"
+        android:textColor="@color/text_hint"
+        app:layout_constraintTop_toBottomOf="@id/tvStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- 종료 배터리 / 최대 시간 -->
+    <LinearLayout
+        android:id="@+id/layoutConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvVin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvStopBattery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="종료 배터리: 30%"
+            android:textSize="14sp"
+            android:textColor="@color/text_hint"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/tvMaxHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최대: 8시간"
+            android:textSize="14sp"
+            android:textColor="@color/text_hint"/>
+    </LinearLayout>
+
+    <!-- 시작 버튼 -->
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:text="캠핑 시작"
+        android:textSize="24sp"
+        android:textColor="@color/text_primary"
+        android:backgroundTint="@color/btn_start"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutConfig"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 종료 버튼 -->
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:text="종료"
+        android:textSize="24sp"
+        android:textColor="@color/text_primary"
+        android:backgroundTint="@color/btn_stop"
+        android:alpha="0.4"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 설정 버튼 -->
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설정"
+        android:textSize="16sp"
+        android:backgroundTint="@color/btn_settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
